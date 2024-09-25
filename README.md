@@ -1,5 +1,5 @@
 # kust_card
-creat a code for kust punch data
+create a code for Kust punch data
 
 
 
