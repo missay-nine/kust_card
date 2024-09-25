@@ -1,0 +1,30 @@
+name: 我在校园打卡
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '00 14 * * *' # 默认在每天 UTC 14:00 （北京时间 22:00）执行
+
+jobs:
+  User01:
+    runs-on: ubuntu-latest
+    environment: CONFIG_01
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      
+    - name: 设置 Go 环境
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.20' # 选择你需要的 Go 版本
+
+    - name: 安装依赖
+      run: go mod tidy
+
+    - name: 执行打卡
+      env:
+
+        username: ${{ secrets.username }}
+        password: ${{ secrets.password }}
+        tencent_key: ${{ secrets.tencent_key }}
+      run: go run main.go
