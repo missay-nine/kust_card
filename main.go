@@ -15,7 +15,9 @@ func main() {
 		panic("error")
 	}
 	username := os.Getenv("username")
+
 	password := os.Getenv("password")
+
 	tencent_key := os.Getenv("tencent_key")
 	// dataBytes, err := os.ReadFile("config.yaml")
 	// if err != nil {
